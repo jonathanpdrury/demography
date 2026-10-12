@@ -1,0 +1,30 @@
+// Priors and rules file
+// *********************
+
+[PARAMETERS]
+//#isInt? #name   #dist.#min  #max
+//all N are in number of haploid individuals
+1 $ANCSIZE$   unif    100000    2e6    output
+1 $Npop0$     unif    100000    2e6    output
+1 $Npop1$     unif    100000    2e6    output
+1 $Npop2$     unif    100000    2e6    output
+1 $ANC_S1$   unif    100000    2e6    output
+1 $TSB$       unif    10    2e6     output
+1 $TBB$       unif    10    2e6    hide
+0  MIG001$        logunif  1e-16   1e-4  output
+0  MIG002$        logunif  1e-16   1e-4  output
+0  MIG010$        logunif  1e-16   1e-4  output
+0  MIG012$        logunif  1e-16   1e-4  output
+0  MIG020$        logunif  1e-16   1e-4  output
+0  MIG021$        logunif  1e-16   1e-4  output
+0  MIG112$        logunif  1e-16   1e-4  output
+0  MIG121$        logunif  1e-16   1e-4  output
+
+[RULES]
+
+[COMPLEX PARAMETERS]
+
+1 $TLB$ = $TBB$+$TSB$ output
+0 $RSSB$ = $ANC_S1$/$Npop1$ output
+0 $RSLB$  = $ANCSIZE$/$Npop2$ output
+
